@@ -1,0 +1,25 @@
+name: Wanderlust webapp ci/cd
+
+on:
+    push:
+        branches:
+            - main
+jobs:
+    Validate:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+    Docker-setup:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+
+            - name: Set up Docker buildx
+              uses: docker/setup-buildx-action@v2  
+
+          
