@@ -35,7 +35,7 @@ jobs:
               uses: docker/build-push-action@v4
               with:
                 context: .
-                file: frontend/Dockerfile
+                file: ./frontend/Dockerfile
                 push: true
                 tags: ${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ github.run_id }}
 
