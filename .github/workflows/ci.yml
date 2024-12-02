@@ -41,8 +41,8 @@ jobs:
                 
             - name: Dokcer Run
               run: |
-                   docker pull ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
-                   docker run -d -p 8080:80 --name wanderlust-webapp ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+                   docker pull ${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ github.run_id }}
+                   docker run -d -p 8080:80 --name wanderlust-webapp ${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ github.run_id }}
 
 
     Stop-container:
