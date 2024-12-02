@@ -38,6 +38,21 @@ jobs:
                 file: ./frontend/Dockerfile
                 push: true
                 tags: ${{ secrets.DOCKERHUB_USERNAME }}/webapp:${{ github.run_id }}
+                
+            - name: Dokcer Run
+              run: |
+                   docker pull ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
+                   docker run -d -p 8080:80 --name wanderlust-webapp ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
 
 
+    Stop-container:
+        runs-on: ubuntu-latest
+        needs: Docker-setup
+        if: always(}
+        steps:
+          - name: Docker container stop
+            run: |
+              docker stop wanderlust-webapp || echo "Container not running"
+              docker rm wanderlust-webapp || echo "Container not found"
           
+        
