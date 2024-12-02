@@ -48,7 +48,7 @@ jobs:
     Stop-container:
         runs-on: ubuntu-latest
         needs: Docker-setup
-        if: always(}
+        if: always()
         steps:
           - name: Docker container stop
             run: |
